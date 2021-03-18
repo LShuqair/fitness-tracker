@@ -1,8 +1,19 @@
+fetch("/api/workouts")
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+    populateChart(data);
+  });
+
+  API.getWorkoutsInRange()
+
 function generatePalette() {
   const arr = [
+    '#c5aab7',
     '#003f5c',
     '#2f4b7c',
-    '#665191',
+    '#826dad',
     '#a05195',
     '#d45087',
     '#f95d6a',
@@ -10,7 +21,7 @@ function generatePalette() {
     'ffa600',
     '#003f5c',
     '#2f4b7c',
-    '#665191',
+    '#826dad',
     '#a05195',
     '#d45087',
     '#f95d6a',
@@ -50,7 +61,15 @@ function populateChart(data) {
   let lineChart = new Chart(line, {
     type: 'line',
     data: {
-      labels,
+      labels: [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
       datasets: [
         {
           label: 'Workout Duration In Minutes',
@@ -90,7 +109,15 @@ function populateChart(data) {
   let barChart = new Chart(bar, {
     type: 'bar',
     data: {
-      labels,
+      labels: [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
       datasets: [
         {
           label: 'Pounds',
@@ -173,22 +200,28 @@ function populateChart(data) {
   });
 }
 
-function calculateTotalWeight(data) {
-  let totals = [];
+function duration(data) {
+  let durations = [];
 
-  data.forEach((workout) => {
-    const workoutTotal = workout.exercises.reduce((total, { type, weight }) => {
-      if (type === 'resistance') {
-        return total + weight;
-      } else {
-        return total;
-      }
-    }, 0);
-
-    totals.push(workoutTotal);
+  data.forEach(workout => {
+    workout.exercises.forEach(exercise => {
+      durations.push(exercise.duration);
+    });
   });
 
-  return totals;
+  return durations;
+}
+
+function calculateTotalWeight(data) {
+  let total = [];
+
+  data.forEach(workout => {
+    workout.exercises.forEach(exercise => {
+      total.push(exercise.weight);
+    });
+  });
+
+  return total;
 }
 
 function workoutNames(data) {
@@ -201,8 +234,7 @@ function workoutNames(data) {
   });
 
   // return de-duplicated array with JavaScript `Set` object
-  return [...new Set(workouts)];
+   
+  return workouts;
 }
 
-// get all workout data from back-end
-API.getWorkoutsInRange().then(populateChart);

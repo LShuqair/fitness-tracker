@@ -6,7 +6,7 @@ const path = require("path");
 
 // Setting up Express App
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 app.use(morgan("dev"));
 

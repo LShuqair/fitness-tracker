@@ -100,7 +100,7 @@ input {
 }
 
 .wrapper {
-  background-color: #f2f8ff;
+  background-color: #f6f7f8;
   padding-bottom: 100px;
 }
 
@@ -323,7 +323,7 @@ button {
   border-radius: 6px;
   border: 1px solid #aaa;
   padding: 10px;
-  background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #f01313 100%);
 }
 
 form > button {
