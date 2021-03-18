@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
 
+
 // Setting up Express App
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -17,7 +18,9 @@ app.use(express.static('public'));
 
 // db mongo
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
-mongoose.connect(MONGODB_URI, {
+mongoose.connect(
+ process.env.MONGODB_URI || 'mongodb://localhost/workout',
+ {
     
        useNewUrlParser: true,
        useUnifiedTopology: true,
