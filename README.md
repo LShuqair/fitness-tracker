@@ -8,7 +8,7 @@
 
 ## LINK TO Deployed App
 
--  [fitness-tracker](https://dashboard.heroku.com/apps/warm-retreat-41164)
+-  [fitness-tracker](https://warm-retreat-41164.herokuapp.com/)
 
 
 ## Screen-shot
