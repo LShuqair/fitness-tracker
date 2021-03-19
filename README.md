@@ -8,7 +8,7 @@
 
 ## LINK TO Deployed App
 
--  [fitness-tracker](https://dry-thicket-48234.herokuapp.com/)
+-  [fitness-tracker](https://dashboard.heroku.com/apps/warm-retreat-41164)
 
 
 ## Screen-shot
