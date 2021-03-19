@@ -1,4 +1,4 @@
-fetch("/api/workouts")
+fetch("/api/workouts/")
   .then(response => {
     return response.json();
   })
